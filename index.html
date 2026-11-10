@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- EDIT: page title and description (shown in browser tab and search results) -->
+<title>Alex Rivera – Software Developer</title>
+<meta name="description" content="Portfolio of Alex Rivera, a software developer who builds useful web and mobile tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef1f4;
+    --ink: #1b2430;
+    --muted: #55606e;
+    --line: #c9d0d8;
+    --accent: #2b4eff;
+    --accent-ink: #ffffff;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14181e;
+      --ink: #e8ecf1;
+      --muted: #9aa5b3;
+      --line: #2c343f;
+      --accent: #7d95ff;
+      --accent-ink: #10131a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+  a { color: inherit; }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Navigation */
+  header.top { padding: 1.5rem 0; }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .logo { font-family: var(--display); font-weight: 700; text-decoration: none; }
+  nav a { font-family: var(--display); font-weight: 500; margin-left: 1.5rem; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--accent); }
+
+  /* Hero */
+  .hero { padding: 5rem 0 4rem; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(3.2rem, 11vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0 0 2rem;
+  }
+  .hero p.role { font-family: var(--display); font-size: 1.35rem; font-weight: 500; color: var(--accent); margin: 0 0 1rem; }
+  .hero p.intro { max-width: 36rem; margin: 0; }
+
+  /* Sections */
+  section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
+  h2 { font-family: var(--display); font-size: 1.8rem; letter-spacing: -0.02em; margin: 0 0 2rem; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  .about p { margin: 0 0 1rem; max-width: 38rem; }
+  .skills { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skills li { font-family: var(--display); font-weight: 500; font-size: 0.95rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.9rem; }
+
+  /* Projects: one row per project */
+  .project { display: grid; grid-template-columns: 1fr; gap: 0.25rem 2rem; padding: 1.75rem 0; border-bottom: 1px solid var(--line); }
+  .project:first-of-type { padding-top: 0; }
+  .project h3 { font-family: var(--display); font-size: 1.5rem; margin: 0; letter-spacing: -0.01em; }
+  .project h3 a { text-decoration: none; }
+  .project h3 a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  .project .meta { color: var(--muted); font-size: 0.95rem; }
+  .project p { margin: 0.5rem 0 0; max-width: 38rem; }
+  .project figure { margin: 1.25rem 0 0; max-width: 38rem; aspect-ratio: 16 / 9; background: var(--line); border-radius: 6px; overflow: hidden; }
+  .project figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo { margin: 0 0 1.5rem; max-width: 14rem; aspect-ratio: 4 / 5; background: var(--line); border-radius: 6px; overflow: hidden; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  @media (min-width: 720px) {
+    .project { grid-template-columns: 11rem 1fr; }
+    .project .meta { grid-row: 1 / span 3; padding-top: 0.35rem; }
+    .project figure { grid-column: 2; }
+    .about { grid-template-columns: 1fr 14rem; }
+  }
+
+  /* Contact */
+  .contact p { max-width: 34rem; margin: 0 0 1.5rem; }
+  .btn {
+    display: inline-block;
+    font-family: var(--display);
+    font-weight: 700;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 0.8rem 1.6rem;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .btn:hover { filter: brightness(1.1); }
+  .links { margin-top: 1.5rem; font-family: var(--display); }
+  .links a { margin-right: 1.5rem; }
+
+  footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.95rem; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <!-- EDIT: your name (short version) -->
+    <a class="logo" href="#top">Alex Rivera</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <!-- EDIT: your full name, job title, and a one-line intro -->
+      <h1>Alex<br>Rivera</h1>
+      <p class="role">Full-stack developer based in San Jose, CA</p>
+      <p class="intro">I build clear, fast web and mobile tools for small teams and local businesses. Right now I'm focused on making everyday software easier to use.</p>
+    </div>
+
+    <section id="about">
+      <h2>About me</h2>
+      <div class="about">
+        <div>
+          <!-- EDIT: your story. Replace these paragraphs with your own. -->
+          <p>I started programming in high school by building a scoreboard app for my school's soccer team, and I haven't stopped making things since. I studied computer science at San Jose State and have spent the last four years building products for startups and nonprofits.</p>
+          <p>I care about simple interfaces, readable code, and software that works for people with slow connections or older devices. Outside of work you'll find me cycling the Santa Cruz mountains, brewing too much coffee, or tinkering with a half-finished synthesizer kit.</p>
+        </div>
+        <div>
+        <!-- EDIT: your photo. Put your picture in an "images" folder and name it profile.jpg
+             (or change the src below). Delete this whole <figure> if you don't want a photo. -->
+        <figure class="photo">
+          <img src="images/profile.jpg" alt="Portrait of Alex Rivera" loading="lazy" onerror="this.parentElement.style.display='none'">
+        </figure>
+        <!-- EDIT: your skills -->
+        <ul class="skills" aria-label="Skills">
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Python</li>
+          <li>PostgreSQL</li>
+          <li>Accessibility</li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <!-- IMAGES: create a folder named "images" next to this file and put your pictures in it.
+           EDIT: each project is one <article>. Copy and paste a block to add more.
+           Change the link href to your live site or GitHub repo. -->
+      <article class="project">
+        <div class="meta">2025<br>React, Firebase</div>
+        <h3><a href="https://github.com/your-username/trailmate">TrailMate</a></h3>
+        <p>A hiking companion app that shows trail conditions reported by other hikers, works offline, and syncs when you're back in range. Used by about 2,000 hikers a month.</p>
+        <!-- EDIT: screenshot. Save it as images/trailmate.jpg, or change the src. Delete this <figure> for no image. -->
+        <figure>
+          <img src="images/trailmate.jpg" alt="Screenshot of TrailMate" loading="lazy" onerror="this.remove()">
+        </figure>
+      </article>
+
+      <article class="project">
+        <div class="meta">2024<br>Node.js, PostgreSQL</div>
+        <h3><a href="https://github.com/your-username/pantry-pal">Pantry Pal</a></h3>
+        <p>A meal-planning tool that suggests recipes from what's already in your kitchen, cutting food waste. Built for a local food bank to help families plan around donated groceries.</p>
+        <!-- EDIT: screenshot. Save it as images/pantry-pal.jpg, or change the src. Delete this <figure> for no image. -->
+        <figure>
+          <img src="images/pantry-pal.jpg" alt="Screenshot of Pantry Pal" loading="lazy" onerror="this.remove()">
+        </figure>
+      </article>
+
+      <article class="project">
+        <div class="meta">2024<br>Python, Flask</div>
+        <h3><a href="https://github.com/your-username/study-sprint">Study Sprint</a></h3>
+        <p>A focus timer and flashcard site for students, with spaced repetition that schedules reviews at the right moment. Open source with 12 contributors.</p>
+        <!-- EDIT: screenshot. Save it as images/study-sprint.jpg, or change the src. Delete this <figure> for no image. -->
+        <figure>
+          <img src="images/study-sprint.jpg" alt="Screenshot of Study Sprint" loading="lazy" onerror="this.remove()">
+        </figure>
+      </article>
+
+      <article class="project">
+        <div class="meta">2023<br>HTML, CSS, JavaScript</div>
+        <h3><a href="https://github.com/your-username/bean-there">Bean There</a></h3>
+        <p>A website for a neighborhood coffee roaster with online ordering, a subscription option, and a menu that updates itself from a spreadsheet.</p>
+        <!-- EDIT: screenshot. Save it as images/bean-there.jpg, or change the src. Delete this <figure> for no image. -->
+        <figure>
+          <img src="images/bean-there.jpg" alt="Screenshot of Bean There" loading="lazy" onerror="this.remove()">
+        </figure>
+      </article>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <!-- EDIT: your email and links -->
+      <p>I'm open to new projects and full-time roles. If you have something in mind, send me a note and I'll reply within a couple of days.</p>
+      <a class="btn" href="mailto:alex@example.com">Email me</a>
+      <div class="links">
+        <a href="https://github.com/your-username">GitHub</a>
+        <a href="https://www.linkedin.com/in/your-username">LinkedIn</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <!-- EDIT: your name and year -->
+    © 2026 Alex Rivera
+  </div>
+</footer>
+
+</body>
+</html>
