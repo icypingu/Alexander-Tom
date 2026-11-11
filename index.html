@@ -84,6 +84,25 @@
   .project p { margin: 0.5rem 0 0; max-width: 38rem; }
   .project figure { margin: 1.25rem 0 0; max-width: 38rem; aspect-ratio: 16 / 9; background: var(--line); border-radius: 6px; overflow: hidden; }
   .project figure img { width: 100%; height: 100%; object-fit: cover; display: block; }
+   /* Multi-image gallery: shows every image instead of stacking them */
+  .project figure.gallery {
+    aspect-ratio: auto;
+    background: none;
+    overflow: visible;
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .project figure.gallery img {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
+    background: var(--line);
+  }
+  @media (min-width: 720px) {
+    .project figure.gallery { grid-template-columns: repeat(3, 1fr); }
+  }
   .photo { margin: 0 0 1.5rem; max-width: 14rem; aspect-ratio: 4 / 5; background: var(--line); border-radius: 6px; overflow: hidden; }
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   @media (min-width: 720px) {
