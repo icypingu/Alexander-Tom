@@ -103,6 +103,38 @@
   @media (min-width: 720px) {
     .project figure.gallery { grid-template-columns: repeat(3, 1fr); }
   }
+
+    /* Click-to-enlarge */
+  .project figure img { cursor: zoom-in; }
+  dialog.lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: 95vw;
+    max-height: 95vh;
+    overflow: visible;
+  }
+  dialog.lightbox::backdrop { background: rgba(0, 0, 0, 0.85); }
+  dialog.lightbox img {
+    display: block;
+    max-width: 95vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 6px;
+    cursor: zoom-out;
+  }
+  dialog.lightbox .lightbox-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+  
   .photo { margin: 0 0 1.5rem; max-width: 14rem; aspect-ratio: 4 / 5; background: var(--line); border-radius: 6px; overflow: hidden; }
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   @media (min-width: 720px) {
@@ -274,5 +306,30 @@
   </div>
 </footer>
 
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+  <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+  <img alt="">
+</dialog>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+
+  document.querySelectorAll('.project figure img').forEach(img => {
+    img.tabIndex = 0;
+    const open = () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.showModal();
+    };
+    img.addEventListener('click', open);
+    img.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+
+  lightbox.addEventListener('click', () => lightbox.close());
+</script>
+  
 </body>
 </html>
