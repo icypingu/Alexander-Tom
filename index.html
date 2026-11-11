@@ -103,7 +103,17 @@
   @media (min-width: 720px) {
     .project figure.gallery { grid-template-columns: repeat(3, 1fr); }
   }
-
+    /*used to have enlarged figures for certtain photos*/
+    .project figure.full {
+    aspect-ratio: auto;
+    background: none;
+    overflow: visible;
+  }
+  .project figure.full img {
+    height: auto;
+    border-radius: 6px;
+  }
+  
     /* Click-to-enlarge */
   .project figure img { cursor: zoom-in; }
   dialog.lightbox {
@@ -270,7 +280,7 @@
         <h3><a href="https://github.com/your-username/bean-there">Discord Music Bot</a></h3>
         <p>Built a Discord bot that plays music from YouTube in voice channels. Users type a song name or paste a link, and the bot finds it and streams the audio live to everyone in the call. A built-in queue lets friends line up songs and control playback with simple commands like pause, skip, and replay.</p>
         <!-- EDIT: screenshot. Save it as images/bean-there.jpg, or change the src. Delete this <figure> for no image. -->
-        <figure>
+        <figure class="full">
           <img src="images/pingubot.PNG" alt="Screenshot of pingubot="lazy" onerror="this.remove()">
         </figure>
       </article>
@@ -280,7 +290,7 @@
         <h3><a href="https://github.com/your-username/bean-there">Hand Cranked Trash Chute</a></h3>
         <p>Designed and built a small-scale prototype of a hand-cranked trash chute, developed as a low-cost waste disposal solution for communities in developing regions.</p>
         <!-- EDIT: screenshot. Save it as images/bean-there.jpg, or change the src. Delete this <figure> for no image. -->
-        <figure>
+        <figure class="full">
           <img src="images/handcrank.jpg" alt="Screenshot of handchute" loading="lazy" onerror="this.remove()">
         </figure>
       </article>
