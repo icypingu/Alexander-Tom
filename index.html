@@ -64,6 +64,28 @@
   .hero p.role { font-family: var(--display); font-size: 1.35rem; font-weight: 500; color: var(--accent); margin: 0 0 1rem; }
   .hero p.intro { max-width: 36rem; margin: 0; }
 
+    /* Name and photo side by side */
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .hero-top h1 {
+    margin: 0;
+    font-size: clamp(3rem, 9vw, 6rem);
+  }
+  .hero-top .photo {
+    margin: 0;
+    flex-shrink: 0;
+    width: 11rem;
+  }
+  @media (max-width: 600px) {
+    .hero-top { flex-direction: column; align-items: flex-start; }
+    .hero-top .photo { width: 9rem; }
+  }
+  
   /* Sections */
   section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
   h2 { font-family: var(--display); font-size: 1.8rem; letter-spacing: -0.02em; margin: 0 0 2rem; }
